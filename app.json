@@ -1,0 +1,44 @@
+{
+  "id": "02-wan-video",
+  "slug": "autodl-wan21",
+  "name": "Wan2.1 文生视频",
+  "description": "根据文字生成832×480、16fps的无声短视频，可选17至81帧。",
+  "task": "text-to-video",
+  "requires_gpu": true,
+  "ffmpeg": true,
+  "imports": [
+    "torch",
+    "diffusers",
+    "transformers",
+    "imageio_ffmpeg"
+  ],
+  "model_gb": 28.9,
+  "disk_gb": 40,
+  "gpu": "建议24GB显存、64GB内存起测；首测17帧，CPU offload。未做云端实测。",
+  "license": "Apache-2.0",
+  "source": "https://github.com/Wan-Video/Wan2.1",
+  "models": {
+    "main": {
+      "kind": "hf",
+      "required_files": ["model_index.json","transformer/*.safetensors","text_encoder/*.safetensors","vae/*.safetensors","tokenizer/*"],
+      "local_only": true,
+      "repo": "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+      "revision": "0fad780a534b6463e45facd96134c9f345acfa5b",
+      "allow_patterns": [
+        "model_index.json",
+        "scheduler/*",
+        "tokenizer/*",
+        "text_encoder/*",
+        "transformer/*",
+        "vae/*",
+        "LICENSE*",
+        "README.md"
+      ]
+    }
+  },
+  "torch": true,
+  "account": {
+    "github": "zw2029181901",
+    "autodl_user": "200211"
+  }
+}
